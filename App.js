@@ -28,8 +28,8 @@ const styles = StyleSheet.create({
   },
   textInput: {
     width: '80%', 
-    borderColor: 'black', 
-    borderWidth: 1, 
+    borderColor: 'purple', 
+    borderWidth: 2, 
     padding: 10
   }
 });
