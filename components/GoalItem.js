@@ -1,40 +1,24 @@
-import React, { useState } from 'react';
-import { View, TextInput, Button, StyleSheet, Modal } from 'react-native';
+import React from 'react';
+import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 
-const GoalInput = props => {
-  const [enteredGoal, setEnteredGoal] = useState('');
-
-  const goalInputHandler = enteredText => {
-    setEnteredGoal(enteredText);
-  };
-
+const GoalItem = props => {
   return (
-    <Modal visible={props.visible} animationType="slide">
-      <View style={styles.inputContainer}>
-        <TextInput
-          placeholder="Course Goal"
-          style={styles.input}
-          onChangeText={goalInputHandler}
-          value={enteredGoal}
-        />
-        <Button title="ADD" onPress={props.onAddGoal.bind(this, enteredGoal)} />
+    <TouchableOpacity onPress={props.onDelete.bind(this, props.id)} >
+      <View style={styles.listItem}>
+        <Text>{props.title}</Text>
       </View>
-    </Modal>
+    </TouchableOpacity>
   );
 };
 
 const styles = StyleSheet.create({
-  inputContainer: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center'
-  },
-  input: {
-    width: '80%',
+  listItem: {
+    padding: 10,
+    marginVertical: 10,
+    backgroundColor: '#ccc',
     borderColor: 'black',
-    borderWidth: 1,
-    padding: 10
+    borderWidth: 1
   }
 });
 
-export default GoalInput;
+export default GoalItem;
